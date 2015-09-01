@@ -1,0 +1,22 @@
+<!-- label form -->
+<hr>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php 
+$form->setAttribute('action', $this->url('label', array('action' => $action)));
+$form->setAttribute('id', 'label_form');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formElement($form->get('id'));
+echo $this->formElementErrors($form->get('id'));
+echo $this->formLabel($form->get('name'));
+echo $this->formElement($form->get('name'));
+echo $this->formElementErrors($form->get('name'));
+echo $this->formLabel($form->get('default_text'));
+echo $this->formElement($form->get('default_text'));
+echo $this->formElementErrors($form->get('default_text'));
+echo $this->formElement($form->get('send'));
+echo $this->form()->closeTag();
+
+?>

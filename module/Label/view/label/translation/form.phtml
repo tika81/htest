@@ -1,0 +1,26 @@
+<!-- translation form -->
+<hr>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php 
+$form->setAttribute('action', $this->url('translation', array('action' => $action)));
+$form->setAttribute('id', 'translation_form');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formElement($form->get('id'));
+echo $this->formElementErrors($form->get('id'));
+echo $this->formElement($form->get('label_id'));
+echo $this->formElementErrors($form->get('label_id'));
+echo $this->formElement($form->get('language'));
+echo $this->formElementErrors($form->get('language'));
+echo $this->formLabel($form->get('text'));
+echo $this->formElement($form->get('text'));
+echo $this->formElementErrors($form->get('text'));
+echo $this->formElement($form->get('send'));
+echo $this->form()->closeTag();
+?>
+<h5>Default text:</h5>
+<?php 
+echo $defaultText;
+?>

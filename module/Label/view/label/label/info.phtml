@@ -1,0 +1,10 @@
+<?php if ($this->flashMessenger()->hasMessages()) { ?>
+<div class="alert alert-<?php echo $class; ?>">'
+<?php 
+    $messages = $this->flashMessenger()->getMessages();
+    foreach($messages as $message) {
+        echo $message;
+    }
+?>
+</div>
+<?php } ?>

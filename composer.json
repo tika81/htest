@@ -1,0 +1,7 @@
+{
+	"require": {
+        "zendframework/zendframework": "2.4.*",
+        "zendframework/zend-developer-tools": "dev-master"
+        
+    }
+}

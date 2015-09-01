@@ -1,0 +1,47 @@
+<div class="show_translations" label_id=<?php echo $labelId; ?>>
+    <h3>Translations</h3>
+    
+    <?php if ($notExistingTrans['count'] > 0) {  ?>
+        <!-- list add translation buttons -->
+        <?php foreach ($notExistingTrans['notExistingTrans'] as $data) { ?>
+        <button type="button" class="btn btn-info btn-xs add_translation" lang="<?php echo $data['lang']; ?>"><?php echo $data['name']; ?></button>
+        <?php } ?>
+        <!-- end list add translation buttons -->
+        
+        <p class="text-info">*Click the language button for which you want to add translation.</p>
+        
+    <?php } else { ?>
+        <p class="text-info">Label has got translations for all supported languages.</p>
+    <?php } ?>
+    
+    <?php if ($existingTrans['count'] > 0) {  ?>
+    <!-- translations table -->
+    <table class="table table-striped">
+        <tr>
+            <th style="width: 15%">Language</th>
+            <th style="width: 50%">Translation text</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <?php foreach ($existingTrans['existingTrans'] as $data) { ?>
+        <?php 
+        $text = $data['text'];
+        if (strlen($text) > 100) {
+            //show only the first 100 characters
+            $text = substr($text, 0, 100) . '...';
+        }
+        ?>
+        <tr>
+            <td><?php echo $data['name']; ?></td>
+            <td><?php echo $text; ?></td>
+            <td><button type="button" class="btn btn-primary btn-xs edit_translation" trans_id="<?php echo $data['id']; ?>">Edit translation</button></td>
+            <td><button type="button" class="btn btn-danger btn-xs delete_translation" trans_id="<?php echo $data['id']; ?>">Delete translation</button></td>
+        </tr>
+        <?php } ?>
+        
+    </table>
+    <!-- end translations table -->
+    <?php } else { ?>
+    <p class="text-warning">There is no translation for this label.</p>
+    <?php } ?>
+</div>
