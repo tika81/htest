@@ -65,7 +65,10 @@ class LabelFormValidator implements InputFilterAwareInterface
                             'table' => 'ht_label',
                             'field' => 'name',
                             'adapter' => $this->dbAdapter,
-                            'exclude' => $id,
+                            'exclude' => array(
+                                'field' => 'id',
+                                'value' => $id
+                            ),
                             'messages' => array(
                                 \Zend\Validator\Db\NoRecordExists::ERROR_RECORD_FOUND => 'Label name is already defined',
                             ),
