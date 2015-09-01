@@ -1,18 +1,18 @@
 $(function() {
 	$("#labels_table tbody .add_translation").each(function(){
         $(this).on("click", function(e) {
-        	e.preventDefault();
-        	
+            e.preventDefault();
+            
             var label_id = $(this).parent().attr('label_id');
             var lang = $(this).attr('lang');
             var data = { label_id: label_id, language: lang };
-        	
+            
             translationForm('add', data);
             
             return false;
         });
-	});
-	$("#labels_table tbody .edit_translation").each(function(){
+    });
+    $("#labels_table tbody .edit_translation").each(function(){
         $(this).on("click", function(e) {
             e.preventDefault();
             
@@ -23,15 +23,15 @@ $(function() {
             
             return false;
         });
-	});
+    });
     
     $("#labels_table tbody .delete_translation").each(function(){
-    	$(this).on("click", function(e) {
+        $(this).on("click", function(e) {
             e.preventDefault();
             
             var trans_id = $(this).attr('trans_id');
             var question = 'Do you really want to delete this translation?'
-        	if (confirm(question)) {
+            if (confirm(question)) {
                 //ajax delete
                 $.ajax({
                     dataType: "html",
@@ -57,7 +57,7 @@ $(function() {
             type: "post",
             data: data,
             success: function(data) {
-            	$.getScript( "/js/Translation/form.js");
+                $.getScript( "/js/Translation/form.js");
                 $('#form').html(data);
                 $('html,body').animate({ scrollTop: $('#form').offset().top }, { duration: 'slow', easing: 'swing'});
             }

@@ -25,15 +25,15 @@ $(function() {
         "bServerSide": true,
         "sAjaxSource": "/label/ajaxGetLabels",
         "fnDrawCallback": function(){
-        	$(".edit_label").on("click", function(e) {
+            $(".edit_label").on("click", function(e) {
                 e.preventDefault();
                 var id = $(this).attr('vall');
                 labelForm('edit', id);
                 return false;
             });
-        	$(".delete_label").on("click", function(e) {
-        		e.preventDefault();
-        		var id = $(this).attr('vall');
+            $(".delete_label").on("click", function(e) {
+                e.preventDefault();
+                var id = $(this).attr('vall');
                 var question = 'Do you really want to delete this label?'
                 if (confirm(question)) {
                     //ajax delete
@@ -51,7 +51,7 @@ $(function() {
                         }
                      });
                 }
-        	});
+            });
         },
                                     
         "fnServerData": function ( sSource, aaData, fnCallback ) {
@@ -68,16 +68,16 @@ $(function() {
     });
 
     $('#labels_table tbody').on('click', 'td.details-control', function(){
-    	var tr = $(this).closest('tr');
-    	var row = $("#labels_table").DataTable().row( tr );
-    	
-    	if ( row.child.isShown() ) {
-    		// This row is already open - close it
-    		row.child.hide();
-    		tr.removeClass('shown');
-    	}
-    	else {
-    		var label_id = $(this).prev().children('.delete_label').attr('vall')
+        var tr = $(this).closest('tr');
+        var row = $("#labels_table").DataTable().row( tr );
+        
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            var label_id = $(this).prev().children('.delete_label').attr('vall')
             $.ajax({
                 dataType: "html",
                 url: "/translation/showTranslations",
@@ -85,14 +85,14 @@ $(function() {
                 type: "post",
                 success: function(data) {
                     $.getScript( "/js/Translation/translation.js");
-                	// Open this row
-                	row.child( data ).show();
-                	tr.addClass('shown');
+                    // Open this row
+                    row.child( data ).show();
+                    tr.addClass('shown');
                     
                     return false;
                 }
              });
-    	}
+        }
     });
     
 });

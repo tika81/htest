@@ -8,7 +8,7 @@ $(function() {
         var label_id = $('#label_id').val();
         var language = $('#language').val();
         var text     = $('#text').val();
-    	
+        
         $.ajax({
             dataType: "html",
             url: action,
@@ -23,6 +23,6 @@ $(function() {
                 $('html,body').animate({ scrollTop: $('#form').offset().top }, { duration: 'slow', easing: 'swing'});
             }
       });
-    	return false;
+        return false;
     });
 });

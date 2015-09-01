@@ -22,7 +22,6 @@ class TranslationFormValidator implements InputFilterAwareInterface
             $inputFilter = new InputFilter();
             $factory = new InputFactory();
 
-
             $inputFilter->add($factory->createInput([
                 'name' => 'text',
                 'required' => true,
