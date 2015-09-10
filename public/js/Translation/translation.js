@@ -1,5 +1,5 @@
 $(function() {
-	$("#labels_table tbody .add_translation").each(function(){
+    $("#labels_table tbody .add_translation").each(function(){
         $(this).on("click", function(e) {
             e.preventDefault();
             
@@ -35,7 +35,7 @@ $(function() {
                 //ajax delete
                 $.ajax({
                     dataType: "html",
-                    url: "/translation/delete",
+                    url: "translation/delete",
                     data: { trans_id: trans_id },
                     type: "post",
                     success: function(data) {
@@ -53,11 +53,11 @@ $(function() {
     function translationForm(action, data){
         $.ajax({
             dataType: "html",
-            url: '/translation/' + action,
+            url: 'translation/' + action,
             type: "post",
             data: data,
             success: function(data) {
-                $.getScript( "/js/Translation/form.js");
+                $.getScript( "js/Translation/form.js");
                 $('#form').html(data);
                 $('html,body').animate({ scrollTop: $('#form').offset().top }, { duration: 'slow', easing: 'swing'});
             }

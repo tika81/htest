@@ -30,9 +30,6 @@ class LabelFormValidator implements InputFilterAwareInterface
             $factory = new InputFactory();
             
             $id = $this->data['id'];
-            if (!$id) {
-                $id = null;
-            }
 
             $inputFilter->add($factory->createInput([
                 'name' => 'name',

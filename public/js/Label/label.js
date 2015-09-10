@@ -11,9 +11,9 @@ $(function() {
                       { "sType": "string", "bSortable": false },
                       { "sType": "string", "bSortable": false },
                       { "className":'details-control',
-                    	  "orderable": false,
-                    	  "data": null,
-                    	  "defaultContent": ''
+                          "orderable": false,
+                          "data": null,
+                          "defaultContent": ''
                       }
                      ],
         "bPaginate":true,
@@ -23,7 +23,7 @@ $(function() {
         "bInfo": true,
         "aaSorting":[],
         "bServerSide": true,
-        "sAjaxSource": "/label/ajaxGetLabels",
+        "sAjaxSource": "label/ajaxGetLabels",
         "fnDrawCallback": function(){
             $(".edit_label").on("click", function(e) {
                 e.preventDefault();
@@ -39,7 +39,7 @@ $(function() {
                     //ajax delete
                     $.ajax({
                         dataType: "html",
-                        url: "/label/delete",
+                        url: "label/delete",
                         data: { 'id': id },
                         type: "post",
                         success: function(data) {
@@ -80,11 +80,11 @@ $(function() {
             var label_id = $(this).prev().children('.delete_label').attr('vall')
             $.ajax({
                 dataType: "html",
-                url: "/translation/showTranslations",
+                url: "translation/showTranslations",
                 data: { label_id: label_id },
                 type: "post",
                 success: function(data) {
-                    $.getScript( "/js/Translation/translation.js");
+                    $.getScript( "js/Translation/translation.js");
                     // Open this row
                     row.child( data ).show();
                     tr.addClass('shown');

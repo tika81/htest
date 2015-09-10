@@ -53,6 +53,7 @@ class TranslationForm extends Form
                 'class' => 'form-control',
                 'id' => 'text',
                 'required' => 'required',
+                'placeholder' => 'Insert translation here',
             ),
             'options' => array(
                 'label' => 'Translation',

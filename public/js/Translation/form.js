@@ -1,5 +1,5 @@
 $(function() {
-	$("#translation_form").on("click", '#submit', function(e){
+    $("#translation_form").on("click", '#submit', function(e){
         e.preventDefault();
         var action = $("#translation_form").attr('action');
         
@@ -18,7 +18,7 @@ $(function() {
             },
             success: function(data) {
                 $('#form').html(data);
-                $.getScript( "/js/Translation/form.js");
+                $.getScript( "js/Translation/form.js");
                 $("#labels_table").dataTable().fnReloadAjax();
                 $('html,body').animate({ scrollTop: $('#form').offset().top }, { duration: 'slow', easing: 'swing'});
             }

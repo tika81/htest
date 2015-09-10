@@ -10,14 +10,14 @@ $(function() {
 });
 
 function labelForm(action, labelId){
-	$.ajax({
+    $.ajax({
         dataType: "html",
-        url: '/label/' + action,
+        url: 'label/' + action,
         type: "post",
         data: { id: labelId },
         success: function(data) {
             $('#form').html(data);
-            $.getScript( "/js/Label/form.js");
+            $.getScript( "js/Label/form.js");
             $('html,body').animate({ scrollTop: $('#form').offset().top }, { duration: 'slow', easing: 'swing'});
         }
   });
