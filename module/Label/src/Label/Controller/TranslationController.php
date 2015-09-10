@@ -13,7 +13,7 @@ use Zend\Stdlib\ArrayObject;
 class TranslationController extends AbstractActionController
 {
     /**
-     * get database adapter
+     * get database adapter test
      */
     private function getDBAdapter()
     {
